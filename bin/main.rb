@@ -22,9 +22,10 @@ player1_input = gets.chomp
 
 puts "Are you sure you want to put X into #{player1_input} - Y/N?"
 player1_decision = gets.chomp
+puts "Your decision for #{player1_input} is #{player1_decision}."
 
 # if Yes
-puts 'Your move is displayed on the board.'
+puts 'Your move, is displayed on the board.'
 # Display updated board
 
 # if No
@@ -33,13 +34,15 @@ player1_input = gets.chomp
 
 puts "Are you sure you want to put X into #{player1_input} - Y/N?"
 player1_decision = gets.chomp
+puts "Your decision for #{player1_input} is #{player1_decision}."
 
 # Turn for player 2
 puts "Now it's Player 2's turn. Player 2, please make your move"
 player2_input = gets.chomp
 
 puts "Are you sure you want to put O into #{player2_input} - Y/N?"
-player1_decision = gets.chomp
+player2_decision = gets.chomp
+puts "Your decision for #{player2_input} is #{player2_decision}."
 
 # if Yes
 puts 'Your move is displayed on the board.'
@@ -51,6 +54,7 @@ player2_input = gets.chomp
 
 puts "Are you sure you want to put O into #{player2_input} - Y/N?"
 player2_decision = gets.chomp
+puts "Your decision for #{player2_input} is #{player2_decision}."
 
 # New turn for player 1
 puts "Now it's Player 1's turn. Player 1, please make your move"
