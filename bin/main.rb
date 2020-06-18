@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+require_relative('../lib/player.rb')
 
 def display_updated_board(moves)
   puts "
@@ -33,11 +34,13 @@ This is the map of your tic-tac-toe board
 
 puts 'Please enter the name of Player 1'
 player1_name = gets.chomp
-puts "player 1 is called #{player1_name}"
+player1 = Player.new(player1_name)
+puts "player 1 is called #{player1.name}"
 
 puts 'Please enter the name of Player 2'
 player2_name = gets.chomp
-puts "player 2 is called #{player2_name}"
+player2 = Player.new(player2_name)
+puts "player 1 is called #{player2.name}"
 
 available_moves = %w[1 2 3 4 5 6 7 8 9]
 WINNING_COMBINATIONS = [
