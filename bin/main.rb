@@ -30,16 +30,16 @@ puts "player 2 is called #{player2_name}"
 
 available_moves = %w[1 2 3 4 5 6 7 8 9]
 WINNING_COMBINATIONS = [
-                        %w[1 2 3],
-                        %w[4 5 6],
-                        %w[7 8 9],
-                        %w[1 4 7],
-                        %w[2 5 8],
-                        %w[3 6 8],
-                        %w[1 5 9],
-                        %w[3 5 7]
-                      ].freeze
-                      
+  %w[1 2 3],
+  %w[4 5 6],
+  %w[7 8 9],
+  %w[1 4 7],
+  %w[2 5 8],
+  %w[3 6 8],
+  %w[1 5 9],
+  %w[3 5 7]
+].freeze
+
 player1_moves = 0
 player2_moves = 0
 winning_move = false
