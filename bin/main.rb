@@ -1,9 +1,23 @@
 #!/usr/bin/env ruby
 
-puts 'Welcome to your favorite schooldays game!'
-
-def display_board
+def display_updated_board(moves)
   puts "
+
+    ===========
+    | #{moves[1]} | #{moves[2]} | #{moves[3]} |
+    --- --- ---
+    | #{moves[4]} | #{moves[5]} | #{moves[6]} |
+    --- --- ---
+    | #{moves[7]} | #{moves[8]} | #{moves[9]} |
+    ===========
+
+    "
+end
+
+puts "!!!Welcome to your favorite schooldays game!!!
+
+This is the map of your tic-tac-toe board
+
      ===========
     | 1 | 2 | 3 |
      --- --- ---
@@ -12,13 +26,10 @@ def display_board
     | 7 | 8 | 9 |
      ===========
 
-  Player 1: use X
-  Player 2: use O
+  Player 1: X
+  Player 2: O
 
   "
-end
-
-display_board
 
 puts 'Please enter the name of Player 1'
 player1_name = gets.chomp
@@ -42,6 +53,7 @@ WINNING_COMBINATIONS = [
 
 player1_moves = 0
 player2_moves = 0
+moves = []
 winning_move = false
 game_on = true
 
@@ -58,9 +70,10 @@ while game_on
 
   player1_moves += 1
 
+  moves[player1_input.to_i] = 'X'
   available_moves = available_moves.reject { |ele| ele == player1_input }
   puts 'Your move, is displayed on the board.'
-  display_board
+  display_updated_board(moves)
 
   if winning_move
     winner = player1_name
@@ -84,9 +97,10 @@ while game_on
   end
 
   player2_moves += 1
+  moves[player2_input.to_i] = 'O'
   available_moves = available_moves.reject { |ele| ele == player2_input }
   puts 'Your move, is displayed on the board.'
-  display_board
+  display_updated_board(moves)
 
   if winning_move
     winner = player2_name
