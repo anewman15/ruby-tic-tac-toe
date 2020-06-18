@@ -2,19 +2,23 @@
 
 puts 'Welcome to your favorite schooldays game!'
 
-puts "
-   ===========
-  | 1 | 2 | 3 |
-   --- --- ---
-  | 4 | 5 | 6 |
-   --- --- ---
-  | 7 | 8 | 9 |
-   ===========
+def display_board
+  puts "
+     ===========
+    | 1 | 2 | 3 |
+     --- --- ---
+    | 4 | 5 | 6 |
+     --- --- ---
+    | 7 | 8 | 9 |
+     ===========
 
-Player 1: use X
-Player 2: use O
+  Player 1: use X
+  Player 2: use O
 
-"
+  "
+end
+
+display_board
 
 puts 'Please enter the name of Player 1'
 player1_name = gets.chomp
@@ -40,8 +44,9 @@ player1_moves = 0
 player2_moves = 0
 winning_move = false
 game_on = true
+
 while game_on
-  # First turn for Player 1
+  # Turn for Player 1
   puts "#{player1_name}, please make your move!. Available cells are: #{available_moves}"
   player1_input = gets.chomp.upcase
 
@@ -55,7 +60,7 @@ while game_on
 
   available_moves = available_moves.reject { |ele| ele == player1_input }
   puts 'Your move, is displayed on the board.'
-  # Display updated board
+  display_board
 
   if winning_move
     winner = player1_name
@@ -68,6 +73,7 @@ while game_on
     break
   end
 
+  # Turn for Player 2
   puts "#{player2_name}, it's your turn. Please make your move. Available cells are: #{available_moves}"
   player2_input = gets.chomp.upcase
 
@@ -80,7 +86,7 @@ while game_on
   player2_moves += 1
   available_moves = available_moves.reject { |ele| ele == player2_input }
   puts 'Your move, is displayed on the board.'
-  # Display updated board
+  display_board
 
   if winning_move
     winner = player2_name
@@ -94,8 +100,3 @@ while game_on
   end
 
 end
-
-# # if 3 contiguous cells are occupied by the same player
-# puts 'Player 1 won the game!'
-# # OR
-# puts 'Player 2 won the game!'
