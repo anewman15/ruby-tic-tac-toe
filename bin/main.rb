@@ -15,6 +15,7 @@ Player 1: use X
 Player 2: use O
 
 "
+
 puts "Please enter the name of Player 1"
 player1_name = gets.chomp
 puts "player 1 is called #{player1_name}"
@@ -29,61 +30,32 @@ while game_on
   # First turn for Player 1
   puts "#{player1_name}, please make your move!. Available cells are: #{available_moves}"
   player1_input = gets.chomp.upcase
-  if available_moves.include?(player1_input)
-    available_moves = available_moves.reject { |ele| ele == player1_input }
-    puts "Your move, is displayed on the board."
-    # Display updated board
-  else 
+
+  until available_moves.include?(player1_input) do
     puts "Ooops! Your move is invalid!. Please try again"
+    puts "#{player1_name}, please make your move!. Available cells are: #{available_moves}"
+    player1_input = gets.chomp.upcase
   end
+
+  available_moves = available_moves.reject { |ele| ele == player1_input }
+  puts "Your move, is displayed on the board."
+  # Display updated board
+
+  puts "#{player2_name}, it's your turn. Please make your move. Available cells are: #{available_moves}"
+  player2_input = gets.chomp.upcase
+  
+  until available_moves.include?(player2_input) do
+    puts "Ooops! Your move is invalid!. Please try again"
+    puts "#{player2_name}, please make your move!. Available cells are: #{available_moves}"
+    player2_input = gets.chomp.upcase
+  end
+
+  available_moves = available_moves.reject { |ele| ele == player2_input }
+  puts "Your move, is displayed on the board."
+  # Display updated board
 end
 
 
-
-
-# puts "Are you sure you want to put X into #{player1_input} - Y/N?"
-# player1_decision = gets.chomp
-# puts "Your decision for #{player1_input} is #{player1_decision}."
-
-# # if Yes
-# puts 'Your move, is displayed on the board.'
-# # Display updated board
-
-# # if No
-# puts 'Player 1, please make your move!'
-# player1_input = gets.chomp
-
-# puts "Are you sure you want to put X into #{player1_input} - Y/N?"
-# player1_decision = gets.chomp
-# puts "Your decision for #{player1_input} is #{player1_decision}."
-
-# # Turn for player 2
-# puts "Now it's Player 2's turn. Player 2, please make your move"
-# player2_input = gets.chomp
-
-# puts "Are you sure you want to put O into #{player2_input} - Y/N?"
-# player2_decision = gets.chomp
-# puts "Your decision for #{player2_input} is #{player2_decision}."
-
-# # if Yes
-# puts 'Your move is displayed on the board.'
-# # Display updated board
-
-# # if No
-# puts 'Player 2, please make your move!'
-# player2_input = gets.chomp
-
-# puts "Are you sure you want to put O into #{player2_input} - Y/N?"
-# player2_decision = gets.chomp
-# puts "Your decision for #{player2_input} is #{player2_decision}."
-
-# # New turn for player 1
-# puts "Now it's Player 1's turn. Player 1, please make your move"
-# player1_input = gets.chomp
-
-# # if user input already occupied
-# puts "#{player1_input} is already occupied. Please look at the board and fill another cell."
-# # Display board
 
 # # if 3 contiguous cells are occupied by the same player
 # puts 'Player 1 won the game!'
