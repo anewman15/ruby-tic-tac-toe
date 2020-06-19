@@ -18,6 +18,8 @@ class Move
   end
 
   def winning_move?
-    # Some method definition
+    if moves.include? WINNING_COMBINATIONS
+      true
+    end
   end
 end
