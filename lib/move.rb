@@ -18,12 +18,11 @@ class Move
   end
 
   def winning_move?(player_moves)
-    WINNING_COMBINATIONS.each do |combination|
+    for combination in WINNING_COMBINATIONS
       if combination == combination & player_moves
-        return true
-      else
-        return false
+        decision = true
       end
     end
+    decision
   end
 end

@@ -32,16 +32,6 @@ This is the map of your tic-tac-toe board
   Player 2: O
 
   "
-WINNING_COMBINATIONS = [
-  %w[1 2 3],
-  %w[4 5 6],
-  %w[7 8 9],
-  %w[1 4 7],
-  %w[2 5 8],
-  %w[3 6 8],
-  %w[1 5 9],
-  %w[3 5 7]
-].freeze
 
 puts 'Please enter the name of Player 1'
 player1_name = gets.chomp
@@ -76,25 +66,18 @@ while game_on
     player1_move = Move.new(player1.name, player1_input)
   end
 
-  player1_moves_count += 1
-  player1_moves << player1_input
+  player1_moves << player1_move.cell
 
   moves[player1_move.cell] = 'X'
   available_moves = available_moves.reject { |ele| ele == player1_move.cell }
   puts 'Your move, is displayed on the board.'
   display_updated_board(moves)
 
-  move_type = player1_move.winning_move?(player1_moves)
-  p move_type
-  if move_type
+  if player1_move.winning_move?(player1_moves)
     puts "Congratulations, #{player1.name}!! You won the game!"
     game_on = false
     break
   end
-  # if player1_moves_count >= 3 && WINNING_COMBINATIONS.each { |nested| player1_moves.include?(nested) }
-  #   puts "#{player1_name} won the Game!!"
-  #   break
-  # end
 
   if winning_move
     winner = player1_name
@@ -119,8 +102,7 @@ while game_on
     player2_move = Move.new(player2.name, player2_input)
   end
 
-  player2_moves_count += 1
-  player2_moves << player2_input
+  player2_moves << player2_move.cell
 
   moves[player2_move.cell] = 'O'
   available_moves = available_moves.reject { |ele| ele == player2_move.cell }
