@@ -17,9 +17,14 @@ class Move
     @cell = cell
   end
 
-  def winning_move?
-    if moves.include? WINNING_COMBINATIONS
-      true
+  def winning_move?(player_moves)
+    for combination in WINNING_COMBINATIONS
+      if combination == combination & player_moves
+        return true
+      else
+        return false
+      end
     end
+
   end
 end
