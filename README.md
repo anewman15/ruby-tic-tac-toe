@@ -1,11 +1,15 @@
 # Tic Tac Toe Game
 
+## Game Screenshot
+![Game Screenshot](./tic-tac-toe-screenshot.png)
+
 ## Built With
 - Ruby
 - Rubocop
 
 ## Getting Started
-This game is playable in your Terminal/Command Shell. To get a local copy up and running follow the steps below
+This game is playable in your Terminal/Command Shell. To get a local copy up and running 
+follow the steps below.
 
 ### Deployment
 1. Open your terminal
@@ -14,7 +18,7 @@ This game is playable in your Terminal/Command Shell. To get a local copy up and
 ### Usage
 1. Run bin/main.rb in your terminal to start the game!
 2. The map of the Tic Tac Toe board is shown with cell numbers.
-3. When prompted, enter the names of Player1 and Player2.
+3. When prompted, enter the names of Player 1 and Player 2.
 4. Player 1 will be assigned the "X". And Player 2 will be assigned "O".
 5. Player 1 will start the game.
 6. Player 1 will enter the cell number where s\he wants to place "X". Then the turn will move to Player 2.
@@ -26,7 +30,7 @@ This game is playable in your Terminal/Command Shell. To get a local copy up and
 3. If you can't get a win after all cells are filled, the game will be draw.
 
 ## Live Demo
-[Repl.it Demo Link](https://repl.it/@anewman15/Ruby-Tic-Tac-Toe-Game#main.rb)
+[Repl.it Demo Link](https://repl.it/@anewman15/Ruby-Tic-Tac-Toe-Game#main.rb).
 Cick the "run" button
 
 ## Authors
@@ -39,7 +43,7 @@ Cick the "run" button
 👤 **Tendongze Godson**
 - Github: [@tGodson](https://github.com/tGodson)
 - Twitter: [@Godson](https://twitter.com/tendongze-godson)
-- Linkedin: [linkedin](https://linkedin.com/in/tendongze95)
+- Linkedin: [tendongze95](https://linkedin.com/in/tendongze95)
 
 ## 🤝 Contributing
 Contributions, issues and feature requests are welcome!
