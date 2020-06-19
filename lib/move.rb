@@ -1,3 +1,4 @@
+# rubocop:disable Style/For
 class Move
   attr_reader :player, :cell
 
@@ -19,10 +20,9 @@ class Move
 
   def winning_move?(player_moves)
     for combination in WINNING_COMBINATIONS
-      if combination == combination & player_moves
-        decision = true
-      end
+      decision = true if combination == combination & player_moves
     end
     decision
   end
 end
+# rubocop:enable Style/For
