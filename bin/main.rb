@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+
 require_relative('../lib/player.rb')
 require_relative('../lib/move.rb')
 
@@ -45,12 +46,9 @@ puts "player 1 is called #{player2.name}"
 
 available_moves = %w[1 2 3 4 5 6 7 8 9]
 
-player1_moves_count = 0
-player2_moves_count = 0
 player1_moves = []
 player2_moves = []
 moves = {}
-winning_move = false
 game_on = true
 
 while game_on
@@ -77,14 +75,7 @@ while game_on
     puts "Congratulations, #{player1.name}!! You won the game!"
     game_on = false
     break
-  end
-
-  if winning_move
-    winner = player1_name
-    puts "#{winner} won the game!!"
-    game_on = false
-    break
-  elsif !winning_move && available_moves.length.zero?
+  elsif !player1_move.winning_move?(player1_moves) && available_moves.length.zero?
     puts 'The game is a draw'
     game_on = false
     break
@@ -113,21 +104,9 @@ while game_on
     puts "Congratulations, #{player2.name}!! You won the game!"
     game_on = false
     break
-  end
-  # if player2_moves_count >= 3 && WINNING_COMBINATIONS.any? { |nested| player2_moves.include?(nested) }
-  #   puts "#{player2_name} won the Game!!"
-  #   break
-  # end
-
-  if winning_move
-    winner = player2_name
-    puts "#{winner} won the game!!"
-    game_on = false
-    break
-  elsif !winning_move && available_moves.length.zero?
+  elsif !player2_move.winning_move?(player2_moves) && available_moves.length.zero?
     puts 'The game is a draw'
     game_on = false
     break
   end
-
 end
