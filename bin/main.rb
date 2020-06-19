@@ -32,16 +32,16 @@ This is the map of your tic-tac-toe board
   Player 2: O
 
   "
-  WINNING_COMBINATIONS = [
-    %w[1 2 3],
-    %w[4 5 6],
-    %w[7 8 9],
-    %w[1 4 7],
-    %w[2 5 8],
-    %w[3 6 8],
-    %w[1 5 9],
-    %w[3 5 7]
-  ].freeze
+WINNING_COMBINATIONS = [
+  %w[1 2 3],
+  %w[4 5 6],
+  %w[7 8 9],
+  %w[1 4 7],
+  %w[2 5 8],
+  %w[3 6 8],
+  %w[1 5 9],
+  %w[3 5 7]
+].freeze
 
 puts 'Please enter the name of Player 1'
 player1_name = gets.chomp
@@ -126,7 +126,7 @@ while game_on
   available_moves = available_moves.reject { |ele| ele == player2_move.cell }
   puts 'Your move, is displayed on the board.'
   display_updated_board(moves)
-  
+
   if player2_move.winning_move?(player2_moves)
     puts "Congratulations, #{player2.name}!! You won the game!"
     game_on = false
@@ -136,7 +136,6 @@ while game_on
   #   puts "#{player2_name} won the Game!!"
   #   break
   # end
-
 
   if winning_move
     winner = player2_name
