@@ -6,11 +6,11 @@ def display_updated_board(moves)
   puts "
 
     ===========
-    | #{moves[1]} | #{moves[2]} | #{moves[3]} |
+    | #{moves['1']} | #{moves['2']} | #{moves['3']} |
     --- --- ---
-    | #{moves[4]} | #{moves[5]} | #{moves[6]} |
+    | #{moves['4']} | #{moves['5']} | #{moves['6']} |
     --- --- ---
-    | #{moves[7]} | #{moves[8]} | #{moves[9]} |
+    | #{moves['7']} | #{moves['8']} | #{moves['9']} |
     ===========
 
     "
@@ -44,20 +44,10 @@ player2 = Player.new(player2_name)
 puts "player 1 is called #{player2.name}"
 
 available_moves = %w[1 2 3 4 5 6 7 8 9]
-WINNING_COMBINATIONS = [
-  %w[1 2 3],
-  %w[4 5 6],
-  %w[7 8 9],
-  %w[1 4 7],
-  %w[2 5 8],
-  %w[3 6 8],
-  %w[1 5 9],
-  %w[3 5 7]
-].freeze
 
 player1_moves = 0
 player2_moves = 0
-moves = []
+moves = {}
 winning_move = false
 game_on = true
 
@@ -76,10 +66,11 @@ while game_on
 
   player1_moves += 1
 
-  moves[player1_move.cell.to_i] = 'X'
+  moves[player1_move.cell] = 'X'
   available_moves = available_moves.reject { |ele| ele == player1_move.cell }
   puts 'Your move, is displayed on the board.'
   display_updated_board(moves)
+  p moves
 
   if winning_move
     winner = player1_name
@@ -105,10 +96,11 @@ while game_on
   end
 
   player2_moves += 1
-  moves[player2_move.cell.to_i] = 'O'
+  moves[player2_move.cell] = 'O'
   available_moves = available_moves.reject { |ele| ele == player2_move.cell }
   puts 'Your move, is displayed on the board.'
   display_updated_board(moves)
+  p moves
 
   if winning_move
     winner = player2_name
