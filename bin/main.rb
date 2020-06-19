@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require_relative('../lib/player.rb')
+require_relative('../lib/move.rb')
 
 def display_updated_board(moves)
   puts "
@@ -62,19 +63,21 @@ game_on = true
 
 while game_on
   # Turn for Player 1
-  puts "#{player1_name}, please make your move!. Available cells are: #{available_moves}"
+  puts "#{player1.name}, please make your move!. Available cells are: #{available_moves}"
   player1_input = gets.chomp.upcase
+  player1_move = Move.new(player1.name, player1_input)
 
-  until available_moves.include?(player1_input)
+  until available_moves.include?(player1_move.cell)
     puts 'Ooops! Your move is invalid!. Please try again'
-    puts "#{player1_name}, please make your move!. Available cells are: #{available_moves}"
+    puts "#{player1.name}, please make your move!. Available cells are: #{available_moves}"
     player1_input = gets.chomp.upcase
+    player1_move = Move.new(player1.name, player1_input)
   end
 
   player1_moves += 1
 
-  moves[player1_input.to_i] = 'X'
-  available_moves = available_moves.reject { |ele| ele == player1_input }
+  moves[player1_move.cell.to_i] = 'X'
+  available_moves = available_moves.reject { |ele| ele == player1_move.cell }
   puts 'Your move, is displayed on the board.'
   display_updated_board(moves)
 
@@ -90,18 +93,20 @@ while game_on
   end
 
   # Turn for Player 2
-  puts "#{player2_name}, it's your turn. Please make your move. Available cells are: #{available_moves}"
+  puts "#{player2.name}, it's your turn. Please make your move. Available cells are: #{available_moves}"
   player2_input = gets.chomp.upcase
+  player2_move = Move.new(player2.name, player2_input)
 
-  until available_moves.include?(player2_input)
+  until available_moves.include?(player2_move.cell)
     puts 'Ooops! Your move is invalid!. Please try again'
-    puts "#{player2_name}, please make your move!. Available cells are: #{available_moves}"
+    puts "#{player2.name}, please make your move!. Available cells are: #{available_moves}"
     player2_input = gets.chomp.upcase
+    player2_move = Move.new(player2.name, player2_input)
   end
 
   player2_moves += 1
-  moves[player2_input.to_i] = 'O'
-  available_moves = available_moves.reject { |ele| ele == player2_input }
+  moves[player2_move.cell.to_i] = 'O'
+  available_moves = available_moves.reject { |ele| ele == player2_move.cell }
   puts 'Your move, is displayed on the board.'
   display_updated_board(moves)
 
