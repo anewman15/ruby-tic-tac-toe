@@ -1,7 +1,7 @@
 require_relative '../lib/move.rb'
 
 describe Move do
-  let(:move1) {Move.new('Rida', 5)}
+  let(:move1) { Move.new('Rida', 5) }
 
   describe '#player' do
     context 'when a move is made' do
@@ -22,7 +22,7 @@ describe Move do
       end
 
       it 'returns winning move' do
-        expect(move1.winning_move?(['1', '2', '3'])).to eq(true)
+        expect(move1.winning_move?(%w[1 2 3])).to eq(true)
       end
     end
   end
