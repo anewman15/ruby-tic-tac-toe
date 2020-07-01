@@ -20,7 +20,12 @@ class Move
 
   def winning_move?(player_moves)
     for combination in WINNING_COMBINATIONS
-      decision = true if combination == combination & player_moves
+      if combination == combination & player_moves
+        decision = true
+        break
+      else
+        decision = false
+      end
     end
     decision
   end
