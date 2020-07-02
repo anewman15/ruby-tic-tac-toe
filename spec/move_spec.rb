@@ -24,6 +24,10 @@ describe Move do
       it 'returns winning move' do
         expect(move1.winning_move?(%w[1 2 3])).to eq(true)
       end
+
+      it 'draw when the move is not a winning one,and there is no more moves left' do
+        expect(!move1.winning_move?([1, 2, 5, 6, 9]) && [].length.zero?).to eq(true)
+      end
     end
   end
 end
